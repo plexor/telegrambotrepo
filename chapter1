@@ -1,0 +1,19 @@
+
+import requests
+
+# Replace 'YOUR_API_TOKEN' with your bot's token
+API_TOKEN = 'YOUR_API_TOKEN'
+BASE_URL = f'https://api.telegram.org/bot{API_TOKEN}/'
+
+def send_message(chat_id, text):
+    url = BASE_URL + 'sendMessage'
+    payload = {
+        'chat_id': chat_id,
+        'text': text
+    }
+    response = requests.post(url, json=payload)
+    return response.json()
+
+if __name__ == '__main__':
+    # Replace 'CHAT_ID' with your chat ID
+    chat_id = 'CHAT_ID'
